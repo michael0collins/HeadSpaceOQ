@@ -21,6 +21,6 @@ public class Game : MonoBehaviour, IGame
 
     public void ReportScore()
     {
-
+        
     }
 }
