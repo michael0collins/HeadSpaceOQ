@@ -20,13 +20,17 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        if(currentVRDevice == VRDevice.None)
+        {
+            DebugConsole.DebugMessage = "There does not seem to be a valid VR headset connected.";
+        }
+
         if(currentVRDevice == VRDevice.Quest)
         {
             SetDefaultTestDatas();
+            SceneManager.LoadScene("MainMenu");
             DebugConsole.DebugMessage = "Quest detected.";
         }
-  
-        SceneManager.LoadScene("MainMenu");
     }
 
     public void DetectCurrentVRDevice()

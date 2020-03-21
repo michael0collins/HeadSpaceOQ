@@ -1,27 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectDetectionController : MonoBehaviour
 {
+    public AudioClip interactSuccessSound;
+    private AudioSource audioSource;
+
+    public Image selectionCrosshair;
+    public Image defaultCrosshair;
+
     //put highlight around object. 
     public float requiredDetectionTime = .5f;
-    public GameObject focusedObject = null;
+    public GameObject focusedObject;
 
     private float startTime;
     private bool tracking;
-    private float focusTimeCounter;
-    private bool focusedObjectCollected;
+    private float focusTimeCounter = 0;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         startTime = Time.time;
     }
 
     private void Update()
     {
-        Debug.DrawRay(transform.position, transform.forward * 100, Color.red, 1);
         CastRay();
+
+        Debug.DrawRay(transform.position, transform.forward * 100, Color.red, 1);
+
+        if (focusedObject != null && focusedObject.tag == "Interactable")
+        {
+            defaultCrosshair.enabled = true;
+        }
     }
 
     private void CastRay()
@@ -30,11 +43,11 @@ public class ObjectDetectionController : MonoBehaviour
 
         focusedObject = null;
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 100))
         {
             focusedObject = hit.collider.gameObject;
 
-            if(hit.collider.tag == "Coin" && !tracking)
+            if (hit.collider.tag == "Interactable" && !tracking && hit.collider.GetComponent<IInteractable>() != null)
             {
                 StartCoroutine(FocusTracker(hit.collider.gameObject));
                 return;
@@ -45,26 +58,29 @@ public class ObjectDetectionController : MonoBehaviour
     private IEnumerator FocusTracker(GameObject objectToTrack)
     {
         tracking = true;
-        while (focusedObject == objectToTrack && !focusedObjectCollected)
+        while (focusedObject == objectToTrack)
         {
+            defaultCrosshair.enabled = false;
+            selectionCrosshair.enabled = true;
+
             focusTimeCounter += Time.deltaTime;
 
-            if (focusTimeCounter > requiredDetectionTime && !focusedObjectCollected)
+            if (focusTimeCounter < requiredDetectionTime)
             {
-                if(objectToTrack.GetComponent<IInteractable>() != null)
-                    objectToTrack.GetComponent<IInteractable>().OnInteracted();
+                selectionCrosshair.fillAmount = focusTimeCounter / requiredDetectionTime;
 
-                focusedObjectCollected = true;
+                if (selectionCrosshair.fillAmount > .95f)
+                {
+                    objectToTrack.GetComponent<IInteractable>().OnInteracted();
+                    audioSource.clip = interactSuccessSound;
+                    audioSource.Play();
+                }
             }
             yield return null;
         }
-        focusedObjectCollected = false;
+        selectionCrosshair.fillAmount = 0;
+        defaultCrosshair.enabled = true;
         focusTimeCounter = 0;
         tracking = false;
-    }
-
-    private float GetTimeSinceGameStart()
-    {
-        return Time.time - startTime;
     }
 }
