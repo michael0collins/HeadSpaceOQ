@@ -71,7 +71,11 @@ public class ObjectDetectionController : MonoBehaviour
 
                 if (selectionCrosshair.fillAmount > .95f)
                 {
-                    objectToTrack.GetComponent<IInteractable>().OnInteracted();
+                    foreach (IInteractable interactable in objectToTrack.GetComponentsInChildren<IInteractable>())
+                    {
+                        interactable.OnInteracted();
+                    }
+
                     audioSource.clip = interactSuccessSound;
                     audioSource.Play();
                 }
