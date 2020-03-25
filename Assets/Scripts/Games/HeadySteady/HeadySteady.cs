@@ -7,14 +7,14 @@ using System;
 public class HeadySteady : Game
 {
     public GameObject resultsBoard;
-
+    public AnimationClip animClip;
     public AudioClip baselineInstructions;
     public AudioClip testedInstructions;
     public AudioClip resultsInstructions;
 
     private Text timer;
     private AudioSource source;
-    private Animator anim;
+    public Animator anim;
     private GameObject headObject;
 
     [Header("Game Settings")]
@@ -24,8 +24,10 @@ public class HeadySteady : Game
     {
         headObject = FindObjectOfType<ObjectDetector>().gameObject;
         timer = GameObject.Find("Timer").GetComponent<Text>();
-        anim = GameObject.Find("Environment").GetComponent<Animator>();
+        //anim = GameObject.Find("Environment").GetComponent<Animator>();
         source = GetComponent<AudioSource>();
+        if (anim == null)
+            timer.text = "Anim is null";
 
         StartCoroutine(Game());
     }
@@ -47,7 +49,7 @@ public class HeadySteady : Game
         List<float> baselineMovementVariation = new List<float>();
         Vector3 startLocation = headObject.transform.position;
 
-        while (Time.time - loggedTime < 25)
+        while (Time.time - loggedTime < animClip.length)
         {
             timer.text = Convert.ToInt16(Time.time - loggedTime) + " / " + Convert.ToInt16(25);
             baselineMovementVariation.Add(Vector3.Distance(startLocation, headObject.transform.position));
@@ -73,7 +75,7 @@ public class HeadySteady : Game
 
         timer.text = "Anim";
 
-        //anim.SetTrigger("StartSimulation");
+        anim.SetTrigger("StartSimulation");
 
         float averageTestedMovement;
         startLocation = headObject.transform.position;
@@ -88,6 +90,8 @@ public class HeadySteady : Game
             testedMovementVariation.Add(Vector3.Distance(startLocation, headObject.transform.position));
             yield return new WaitForSeconds(dataCollectionInterval);
         }
+
+        anim.ResetTrigger("StartSimulation");
 
         timer.enabled = false;
 
