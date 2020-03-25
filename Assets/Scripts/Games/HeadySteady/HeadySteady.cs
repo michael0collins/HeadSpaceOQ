@@ -16,7 +16,7 @@ public class HeadySteady : Game
 
     private Text timer;
     private AudioSource source;
-    private Animation anim;
+    private Animator anim;
     private GameObject headObject;
 
     [Header("Game Settings")]
@@ -26,7 +26,7 @@ public class HeadySteady : Game
     {
         headObject = FindObjectOfType<ObjectDetector>().gameObject;
         timer = GameObject.Find("Timer").GetComponent<Text>();
-        anim = GameObject.Find("Environment").GetComponent<Animation>();
+        anim = GameObject.Find("Environment").GetComponent<Animator>();
         source = GetComponent<AudioSource>();
 
         StartCoroutine(Game());
@@ -68,14 +68,14 @@ public class HeadySteady : Game
 
         averageBaselineMovement = average / baselineMovementVariation.Count;
 
-        print("the average baseline is " + averageBaselineMovement);
-
         source.clip = testedInstructions;
         source.Play();
 
         yield return new WaitForSeconds(source.clip.length + 3.0f);
 
-        anim.Play();
+        timer.text = "Anim";
+
+        //anim.SetTrigger("StartSimulation");
 
         float averageTestedMovement;
         startLocation = headObject.transform.position;
