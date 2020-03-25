@@ -12,15 +12,13 @@ public class HeadySteady : Game
     public AudioClip testedInstructions;
     public AudioClip resultsInstructions;
 
-    public AnimationClip testAnimation;
-
     private Text timer;
     private AudioSource source;
     private Animator anim;
     private GameObject headObject;
 
     [Header("Game Settings")]
-    public float dataCollectionInterval = .25f;
+    public float dataCollectionInterval = .1f;
 
     private void Start()
     {
