@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ObjectMatching : MonoBehaviour
 {
+    public AudioClip instructions1;
+
     private GameManager gameManager;
 
     private void Start()
@@ -18,8 +20,9 @@ public class ObjectMatching : MonoBehaviour
 
         for(int i = 0; i < numOfGames; i++)
         {
-            print("Game # " + i);
-            yield return null;
+            
         }
+
+        yield return null;
     }
 }
