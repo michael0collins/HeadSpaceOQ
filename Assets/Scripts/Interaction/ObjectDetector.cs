@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ObjectDetectionController : MonoBehaviour
+public class ObjectDetector : MonoBehaviour
 {
     public AudioClip interactSuccessSound;
     private AudioSource audioSource;
@@ -69,7 +69,7 @@ public class ObjectDetectionController : MonoBehaviour
             {
                 selectionCrosshair.fillAmount = focusTimeCounter / requiredDetectionTime;
 
-                if (selectionCrosshair.fillAmount > .95f)
+                if (selectionCrosshair.fillAmount > .9f)
                 {
                     foreach (IInteractable interactable in objectToTrack.GetComponentsInChildren<IInteractable>())
                     {
