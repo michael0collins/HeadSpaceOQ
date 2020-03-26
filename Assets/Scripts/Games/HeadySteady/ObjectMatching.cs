@@ -6,22 +6,23 @@ using UnityEngine.UI;
 
 public class ObjectMatching : MonoBehaviour
 {
-    public int totalGoalObjects = 4;
-    public int gridWidth = 4;
-    private float objectGridSpacing = 1.5f;
-    public Transform objectShowPosition;
+    //round duration--REMOVE
 
-    public int totalCollected = 0;
+    //show duration
+    public float showDuration = 2.5f;
+    //number of goal objects
+    public int totalGoalObjects = 4;
 
     public AudioClip instructions1;
     public List<MatchingObject> matchingObjectsPool = new List<MatchingObject>();
+    public Transform objectShowPosition;
+
+    private int gridWidth = 4;
+    private float objectGridSpacing = 1.5f;
 
     private Text timer;
-
     private AudioSource source;
     private GameManager gameManager;
-
-    private Transform startPos;
 
     private void Start()
     {
@@ -40,70 +41,15 @@ public class ObjectMatching : MonoBehaviour
 
         for (int i = 0; i < numOfGames; i++)
         {
-            //if (i == 0)
-            //{
-                //source.clip = instructions1;
-                //source.Play();
-                //yield return new WaitForSeconds(instructions1.length);
-            //}
-
-            //replace with GameManager value
-            int objectsInGame = 14;
-       
-            //Create game specific list
-            List<MatchingObject> playObjects = new List<MatchingObject>(matchingObjectsPool);
-            List<MatchingObject> inGameObjects = new List<MatchingObject>();
-
-            for(int j = 0; j < objectsInGame; j++)
+            /*
+            if (i == 0)
             {
-                playObjects.RemoveAt(playObjects.Count - 1);
+                source.clip = instructions1;
+                source.Play();
+                yield return new WaitForSeconds(instructions1.length);
             }
-
-            for (int k = 0; k < playObjects.Count; k++)
-            {
-                MatchingObject objectClone = Instantiate(playObjects[k], transform.position, Quaternion.identity, transform) as MatchingObject;
-                inGameObjects.Add(objectClone);
-                objectClone.isGoalObject = false;
-            }
-
-            //choose the winning objects.
-            //replace 4 with gamemanager amount
-            foreach (int seed in RandomSeedGenerator(totalGoalObjects, playObjects))
-            {
-                inGameObjects[seed].isGoalObject = true;
-            }
-            
-            foreach (MatchingObject matchingObject in inGameObjects)
-            {
-                if(matchingObject.isGoalObject)
-                {
-                    print("object found");
-                    matchingObject.transform.position = new Vector3(0, 2, 2);
-                    yield return new WaitForSeconds(1.0f);
-                    matchingObject.transform.position = Vector3.one * 100;
-                }
-            }
-           
-            yield return new WaitForSeconds(2); 
-
-            int spawnIndex = 0;
-            for (int j = 0; j < 4; j++)
-            {
-                for (int k = 0; k < 3; k++)
-                {
-                    inGameObjects[spawnIndex].tag = "Interactable";
-                    Vector3 gridPos = new Vector3(transform.position.x + j * objectGridSpacing, transform.position.y + k * objectGridSpacing, transform.position.z);
-                    inGameObjects[spawnIndex].transform.position = gridPos;
-                    spawnIndex++;
-                }
-            }
-
-            //timer.enabled = true;
-
-            //while(totalCollected < totalGoalObjects)
-            //{
-
-            //}
+            */
+        
         }
     }
 
@@ -131,7 +77,7 @@ public class ObjectMatching : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, Vector3.one * 3);
+        Gizmos.DrawWireCube(transform.position, new Vector3(3, 3, .5f));
         Gizmos.DrawCube(objectShowPosition.position, Vector3.one / 2);
     }
 }
