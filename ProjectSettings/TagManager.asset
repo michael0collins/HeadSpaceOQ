@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ListItem
   - Interactable
+  - pointer
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Environment
   - Ground
   - Outline
-  - 
+  - MatchingObjects
   - 
   - 
   - 
