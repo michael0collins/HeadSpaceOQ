@@ -69,7 +69,7 @@ public class ObjectDetector : MonoBehaviour
             {
                 selectionCrosshair.fillAmount = focusTimeCounter / requiredDetectionTime;
 
-                if (selectionCrosshair.fillAmount > .9f)
+                if (selectionCrosshair.fillAmount > .9f && objectToTrack != null)
                 {
                     foreach (IInteractable interactable in objectToTrack.GetComponentsInChildren<IInteractable>())
                     {
