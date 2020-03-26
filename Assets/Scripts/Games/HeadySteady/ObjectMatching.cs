@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
 
-public class ObjectMatching : MonoBehaviour
+public class ObjectMatching : Game
 {
     //round duration--REMOVE
 
@@ -43,12 +43,12 @@ public class ObjectMatching : MonoBehaviour
 
         for (int g = 0; g < numOfGames; g++)
         {
-            if (g == 0)
-            {
-                source.clip = instructions1;
-                source.Play();
-                yield return new WaitForSeconds(instructions1.length);
-            }
+            //if (g == 0)
+            //{
+                //source.clip = instructions1;
+                //source.Play();
+                //yield return new WaitForSeconds(instructions1.length);
+            //}
 
             //Get 12 random numbers for objects.
             int[] seed = RandomSeedGenerator(12, matchingObjectsPool);
@@ -106,8 +106,35 @@ public class ObjectMatching : MonoBehaviour
                 yield return null;
             }
 
-            yield return new WaitForSeconds(10.0f);
+            //Delete all matching objects.
+            inGameObjects.Clear();
+            foreach(MatchingObject matchingObject in FindObjectsOfType<MatchingObject>())
+            {
+                Destroy(matchingObject.gameObject);
+            }
+
+            //Deal with win/loss.
+            if (totalCorrect == totalGoalObjects)
+            {
+                base.OnWin();
+                timer.text = "Good job, next round.";
+            }
+            else
+
+            if (incorrectGuess)
+            {
+                base.OnLoss();
+                timer.text = "Oops, that was wrong. Lets try another game.";
+                //Stop loop.
+                g = numOfGames;
+            }
+
+            yield return new WaitForSeconds(5.0f);
+
+            timer.text = "";
         }
+
+        returnToMenu.SetActive(true);
     }
 
     private int[] RandomSeedGenerator(int length, List<MatchingObject> matchingObjectPool)

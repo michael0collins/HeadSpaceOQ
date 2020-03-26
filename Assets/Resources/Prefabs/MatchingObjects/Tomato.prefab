@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5478688773632414256}
   - component: {fileID: 5478688773632414263}
   - component: {fileID: 5478688773632414262}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Tomato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 5478688774413904785}
   - component: {fileID: 5478688774413904787}
   - component: {fileID: 5478688774413904786}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 5478688775155762384}
   - component: {fileID: 5478688775155762391}
   - component: {fileID: 5478688775155762390}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Canvas (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,40 +243,90 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5478688773632414256}
     m_Modifications:
+    - target: {fileID: -5975033157549033438, guid: b9cd57febae714c898fa4b9289f80690,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.11197478
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: b9cd57febae714c898fa4b9289f80690,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0053859334
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: b9cd57febae714c898fa4b9289f80690,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0033971106
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: b9cd57febae714c898fa4b9289f80690,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0037634678
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: b9cd57febae714c898fa4b9289f80690,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.03318601
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: b9cd57febae714c898fa4b9289f80690,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.053580873
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: b9cd57febae714c898fa4b9289f80690,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99225086
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: b9cd57febae714c898fa4b9289f80690,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 12.873
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: b9cd57febae714c898fa4b9289f80690,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -6.1910005
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: b9cd57febae714c898fa4b9289f80690,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.07700001
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b9cd57febae714c898fa4b9289f80690,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.006753
+      value: 0.0042044166
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b9cd57febae714c898fa4b9289f80690,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0044311
+      value: 0.001583687
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b9cd57febae714c898fa4b9289f80690,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.003355
+      value: 0.017545132
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b9cd57febae714c898fa4b9289f80690,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.13004816
+      value: -0.45080554
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b9cd57febae714c898fa4b9289f80690,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0074660885
+      value: 0.17780273
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b9cd57febae714c898fa4b9289f80690,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.22213611
+      value: 0.0853882
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b9cd57febae714c898fa4b9289f80690,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.966275
+      value: 0.87055695
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b9cd57febae714c898fa4b9289f80690,
         type: 3}
@@ -286,17 +336,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: b9cd57febae714c898fa4b9289f80690,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 14.752001
+      value: -54.614002
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b9cd57febae714c898fa4b9289f80690,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 2.569
+      value: 23.681002
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b9cd57febae714c898fa4b9289f80690,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 26.226002
+      value: -1.1520001
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b9cd57febae714c898fa4b9289f80690,
         type: 3}
@@ -322,6 +372,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tomato
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b9cd57febae714c898fa4b9289f80690,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534866581884222612, guid: b9cd57febae714c898fa4b9289f80690,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9cd57febae714c898fa4b9289f80690, type: 3}

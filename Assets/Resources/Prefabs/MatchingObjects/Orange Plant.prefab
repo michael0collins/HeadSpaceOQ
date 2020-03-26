@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5333926729237297755}
   - component: {fileID: 5333926729237297752}
   - component: {fileID: 5333926729237297753}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Orange Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 5333926730158796549}
   - component: {fileID: 5333926730158796551}
   - component: {fileID: 5333926730158796548}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 5333926731060770925}
   - component: {fileID: 5333926731060770914}
   - component: {fileID: 5333926731060770915}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Canvas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,6 +247,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plant Orange 3
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d2093d235c8ca9c46874255bb2e59924, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d2093d235c8ca9c46874255bb2e59924, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0048494935
@@ -303,6 +307,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: d2093d235c8ca9c46874255bb2e59924, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 267e78adc2e154ab3b84ae7d1531c10e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2093d235c8ca9c46874255bb2e59924, type: 3}
 --- !u!4 &5333926729509904261 stripped

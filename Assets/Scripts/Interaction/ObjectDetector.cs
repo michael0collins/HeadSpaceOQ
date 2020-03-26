@@ -83,6 +83,7 @@ public class ObjectDetector : MonoBehaviour
             yield return null;
         }
         selectionCrosshair.fillAmount = 0;
+        selectionCrosshair.enabled = false;
         defaultCrosshair.enabled = true;
         focusTimeCounter = 0;
         tracking = false;

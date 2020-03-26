@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1396299054213445247}
   - component: {fileID: 1396299054213445246}
   - component: {fileID: 1396299054213445185}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Canvas (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 1396299055006473365}
   - component: {fileID: 1396299055006473364}
   - component: {fileID: 1396299055006473367}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cup Of Coffee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 1396299055858661648}
   - component: {fileID: 1396299055858661646}
   - component: {fileID: 1396299055858661649}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,6 +322,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CupOfCoffee
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 614d53b73c0d0428ab12a5d8c0f4abea,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534866581884222612, guid: 614d53b73c0d0428ab12a5d8c0f4abea,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 614d53b73c0d0428ab12a5d8c0f4abea, type: 3}

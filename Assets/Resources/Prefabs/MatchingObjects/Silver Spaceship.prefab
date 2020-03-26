@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5320573274779325530}
   - component: {fileID: 5320573274779325509}
   - component: {fileID: 5320573274779325508}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Silver Spaceship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 5320573275311831725}
   - component: {fileID: 5320573275311831724}
   - component: {fileID: 5320573275311831727}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Canvas (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 5320573275645411367}
   - component: {fileID: 5320573275645411365}
   - component: {fileID: 5320573275645411364}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,6 +322,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BigSpaceship
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 843be41bc1afb4ed5bb3ffa021dea894,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534866581884222612, guid: 843be41bc1afb4ed5bb3ffa021dea894,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 843be41bc1afb4ed5bb3ffa021dea894, type: 3}

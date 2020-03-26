@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 420658340013101619}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RaceCar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,16 +23,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3714664098447728672}
-  m_LocalRotation: {x: -0.16692434, y: 0.6453766, z: -0.2238325, w: 0.7110023}
-  m_LocalPosition: {x: 0.047805246, y: 0.111, z: -0.028758183}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalRotation: {x: -0.13931152, y: 0.6535478, z: -0.19871424, w: 0.7169242}
+  m_LocalPosition: {x: 0.035002, y: 0.11550257, z: -0.035651237}
+  m_LocalScale: {x: 0.07835, y: 0.07835, z: 0.07835}
   m_Children:
   - {fileID: 2963712282234333789}
   - {fileID: 3811571749749060818}
   - {fileID: 1795486323833379639}
   m_Father: {fileID: 6991133816374341249}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 2.9550002, y: 83.604004, z: -32.307003}
+  m_LocalEulerAnglesHint: {x: 3.4390001, y: 83.850006, z: -27.896002}
 --- !u!1 &4319228589759308672
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 1795486323833379639}
   - component: {fileID: 4163111092124642526}
   - component: {fileID: 5390347811969799064}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FrontWheels.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 6991133814979309355}
   - component: {fileID: 6991133814979309356}
   - component: {fileID: 6991133814979309357}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Canvas (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 6991133816272630025}
   - component: {fileID: 6991133816272630039}
   - component: {fileID: 6991133816272630024}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 6991133816374341249}
   - component: {fileID: 6991133816374341250}
   - component: {fileID: 6991133816374341251}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Race Car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 2963712282234333789}
   - component: {fileID: 3733658733127987731}
   - component: {fileID: 4521939689663006637}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 3811571749749060818}
   - component: {fileID: 6716987365685065966}
   - component: {fileID: 3577852339149247887}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FrontWheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}

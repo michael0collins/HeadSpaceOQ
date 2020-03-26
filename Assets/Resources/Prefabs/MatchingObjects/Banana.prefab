@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2177146841824977499}
   - component: {fileID: 2177146841824977498}
   - component: {fileID: 2177146841824977497}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Canvas (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 2177146843349664352}
   - component: {fileID: 2177146843349664287}
   - component: {fileID: 2177146843349664286}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Banana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 2177146843432910511}
   - component: {fileID: 2177146843432910513}
   - component: {fileID: 2177146843432910512}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,6 +322,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Banana
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 9b177b9a39d0845fda3d8983a89e772d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534866581884222612, guid: 9b177b9a39d0845fda3d8983a89e772d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b177b9a39d0845fda3d8983a89e772d, type: 3}

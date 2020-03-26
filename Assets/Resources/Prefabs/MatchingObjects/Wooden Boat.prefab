@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2426191779526741367}
   - component: {fileID: 2426191779526741366}
   - component: {fileID: 2426191779526741361}
-  m_Layer: 0
-  m_Name: Boat
+  m_Layer: 13
+  m_Name: Wooden Boat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2426191779526741360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.007317762, y: -0.00030145794, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7264627664539905915}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 2426191780588856083}
   - component: {fileID: 2426191780588856081}
   - component: {fileID: 2426191780588856080}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 2426191780602938145}
   - component: {fileID: 2426191780602938144}
   - component: {fileID: 2426191780602938147}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Canvas (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,40 +243,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2426191779526741367}
     m_Modifications:
+    - target: {fileID: -8511188950618541562, guid: 78a19f377ddda4c5a81df8707048cb24,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -4296581229763651456, guid: 78a19f377ddda4c5a81df8707048cb24,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 78a19f377ddda4c5a81df8707048cb24,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.023000002
+      value: -0.001
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 78a19f377ddda4c5a81df8707048cb24,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.055562988
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 78a19f377ddda4c5a81df8707048cb24,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.013119604
+      value: 0.015582706
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 78a19f377ddda4c5a81df8707048cb24,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.046081886
+      value: -0.09229599
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 78a19f377ddda4c5a81df8707048cb24,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6055456
+      value: 0.7010574
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 78a19f377ddda4c5a81df8707048cb24,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.19886485
+      value: -0.09229599
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 78a19f377ddda4c5a81df8707048cb24,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.76918393
+      value: 0.7010574
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 78a19f377ddda4c5a81df8707048cb24,
         type: 3}
@@ -286,17 +296,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 78a19f377ddda4c5a81df8707048cb24,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 9.785001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 78a19f377ddda4c5a81df8707048cb24,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 74.55801
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 78a19f377ddda4c5a81df8707048cb24,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -21.535002
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 78a19f377ddda4c5a81df8707048cb24,
         type: 3}
@@ -313,11 +323,41 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.37167
       objectReference: {fileID: 0}
+    - target: {fileID: -1957143355505776490, guid: 78a19f377ddda4c5a81df8707048cb24,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cc775b128da344a22beeff44d20e5f34, type: 2}
+    - target: {fileID: -1957143355505776490, guid: 78a19f377ddda4c5a81df8707048cb24,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: cc775b128da344a22beeff44d20e5f34, type: 2}
+    - target: {fileID: -1957143355505776490, guid: 78a19f377ddda4c5a81df8707048cb24,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: cc775b128da344a22beeff44d20e5f34, type: 2}
     - target: {fileID: -927199367670048503, guid: 78a19f377ddda4c5a81df8707048cb24,
         type: 3}
       propertyPath: m_Name
       value: BoatWSail
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 78a19f377ddda4c5a81df8707048cb24,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8882936541465475638, guid: 78a19f377ddda4c5a81df8707048cb24,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cbdad1cedf62c446bbf6dfe2e114bcc0, type: 2}
+    - target: {fileID: 8882936541465475638, guid: 78a19f377ddda4c5a81df8707048cb24,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: cbdad1cedf62c446bbf6dfe2e114bcc0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78a19f377ddda4c5a81df8707048cb24, type: 3}
 --- !u!4 &7264627664539905915 stripped

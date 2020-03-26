@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8471310261185504773}
   - component: {fileID: 8471310261185504775}
   - component: {fileID: 8471310261185504772}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 8471310261247365605}
   - component: {fileID: 8471310261247365602}
   - component: {fileID: 8471310261247365603}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Green Spaceship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 8471310261440728754}
   - component: {fileID: 8471310261440728755}
   - component: {fileID: 8471310261440728752}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Canvas (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,6 +243,56 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8471310261247365605}
     m_Modifications:
+    - target: {fileID: -5975033157549033438, guid: 0fb7cad498bbd4344bbcf0e2bc62a713,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0041401093
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 0fb7cad498bbd4344bbcf0e2bc62a713,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.073844425
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 0fb7cad498bbd4344bbcf0e2bc62a713,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0025051876
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 0fb7cad498bbd4344bbcf0e2bc62a713,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0065231626
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 0fb7cad498bbd4344bbcf0e2bc62a713,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9972399
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 0fb7cad498bbd4344bbcf0e2bc62a713,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0031232575
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 0fb7cad498bbd4344bbcf0e2bc62a713,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00041635305
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 0fb7cad498bbd4344bbcf0e2bc62a713,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.528
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 0fb7cad498bbd4344bbcf0e2bc62a713,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.71000004
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 0fb7cad498bbd4344bbcf0e2bc62a713,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 8.467
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0fb7cad498bbd4344bbcf0e2bc62a713,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -322,6 +372,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MediumShip
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0fb7cad498bbd4344bbcf0e2bc62a713,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534866581884222612, guid: 0fb7cad498bbd4344bbcf0e2bc62a713,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fb7cad498bbd4344bbcf0e2bc62a713, type: 3}

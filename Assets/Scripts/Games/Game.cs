@@ -11,12 +11,14 @@ public class Game : MonoBehaviour, IGame
     
     public void OnWin()
     {
-
+        print("Win");
+        //Report win to GameManager.
     }
 
     public void OnLoss()
     {
-
+        print("Loss");
+        //Report loss to GameManager.
     }
 
     public void ReportScore()

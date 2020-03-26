@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1387757292093956547}
   - component: {fileID: 1387757292093956546}
   - component: {fileID: 1387757292093956549}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Canvas (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 1387757292096186190}
   - component: {fileID: 1387757292096186289}
   - component: {fileID: 1387757292096186288}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Donut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 1387757293754047519}
   - component: {fileID: 1387757293754047517}
   - component: {fileID: 1387757293754047516}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,6 +243,56 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1387757292096186190}
     m_Modifications:
+    - target: {fileID: -5975033157549033438, guid: 45316a9a7bc03482388fa11e52760ee6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.1440502
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 45316a9a7bc03482388fa11e52760ee6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.12635167
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 45316a9a7bc03482388fa11e52760ee6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.08362185
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 45316a9a7bc03482388fa11e52760ee6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9779019
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 45316a9a7bc03482388fa11e52760ee6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0014999897
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 45316a9a7bc03482388fa11e52760ee6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00041626312
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 45316a9a7bc03482388fa11e52760ee6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0019550358
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 45316a9a7bc03482388fa11e52760ee6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -17.630001
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 45316a9a7bc03482388fa11e52760ee6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -13.534
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 45316a9a7bc03482388fa11e52760ee6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -7.6670003
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 45316a9a7bc03482388fa11e52760ee6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -322,6 +372,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Donut
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 45316a9a7bc03482388fa11e52760ee6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534866581884222612, guid: 45316a9a7bc03482388fa11e52760ee6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45316a9a7bc03482388fa11e52760ee6, type: 3}

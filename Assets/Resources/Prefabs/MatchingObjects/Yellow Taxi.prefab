@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4763343748357663023}
   - component: {fileID: 7855636802166860007}
   - component: {fileID: 1441988068995827181}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Front Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 1358719814736387818}
   - component: {fileID: 1358719814736387819}
   - component: {fileID: 1358719814736387828}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Canvas (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 1358719814808129868}
   - component: {fileID: 1358719814808129858}
   - component: {fileID: 1358719814808129859}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,8 +266,8 @@ GameObject:
   - component: {fileID: 1358719815777926248}
   - component: {fileID: 1358719815777926249}
   - component: {fileID: 1358719815777926250}
-  m_Layer: 0
-  m_Name: Taxi
+  m_Layer: 13
+  m_Name: Yellow Taxi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 1279967173962150365}
   - component: {fileID: 5405170182497621064}
   - component: {fileID: 3953599054113555721}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Taxi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 5437433925870637810}
   - component: {fileID: 3236886320338173241}
   - component: {fileID: 8669656137642548876}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BackWheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,7 +482,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6940718385028087613}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Taxi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
