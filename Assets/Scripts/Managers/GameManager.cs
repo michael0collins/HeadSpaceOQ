@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {   
@@ -12,6 +13,8 @@ public class GameManager : MonoBehaviour
     public List<BalanceTestGameData> balanceTestGameDatas = new List<BalanceTestGameData>();
     public List<ObjectTrackingTestGameData> objectTrackingTestGameDatas = new List<ObjectTrackingTestGameData>();
     public List<MemoryTestGameData> memoryTestGameDatas = new List<MemoryTestGameData>();
+
+    public int gamesComplete;
 
     void Awake()
     {
@@ -37,6 +40,15 @@ public class GameManager : MonoBehaviour
     {
         if (Application.platform == RuntimePlatform.Android)
             currentVRDevice = VRDevice.Quest;
+    }
+
+    //Replace
+    public void CheckGamesComplete()
+    {
+        if(gamesComplete == 3)
+        {
+            GameObject.Find("Timer").GetComponent<Text>().text = "Thank you for participating in our test. <br> Please consult your phsyician with any questions..";
+        }
     }
     
     public void ClearGameDatas()
