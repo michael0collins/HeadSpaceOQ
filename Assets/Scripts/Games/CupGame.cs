@@ -1,9 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CupGame : Game, IGame
+public class CupGame : Game
 {
     public GameObject ballPrefab;
     public AudioClip instructions1;
@@ -21,7 +20,6 @@ public class CupGame : Game, IGame
     private Text timer;
     private bool gameIsOver = false;
 
-    //replace later.
     private float animationSpeed = 5;
 
     private void Start()
@@ -75,7 +73,7 @@ public class CupGame : Game, IGame
 
                 //Get all active cups.
                 cups = FindObjectsOfType<Cup>();
-
+ 
                 //Choose the winning cup.
                 int goalCup = Random.Range(0, cups.Length);
                 cups[goalCup].isGoalObject = true;
@@ -131,6 +129,9 @@ public class CupGame : Game, IGame
 
     private IEnumerator EndGame(bool loss)
     {
+        if(FindObjectOfType<ProgressionBoard>() != null)
+            FindObjectOfType<ProgressionBoard>().AddBoardElement("Cup Game 3/3");
+
         if (loss)
         {
             gameIsOver = true;

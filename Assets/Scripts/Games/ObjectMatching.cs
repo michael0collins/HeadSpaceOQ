@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine; 
 using System.Linq;
 using UnityEngine.UI;
 
@@ -131,6 +131,9 @@ public class ObjectMatching : Game
                 //Stop loop.
                 g = numOfGames;
             }
+
+            if(FindObjectOfType<ProgressionBoard>() != null)
+                FindObjectOfType<ProgressionBoard>().AddBoardElement("Object Matching 3/3");
 
             yield return new WaitForSeconds(5.0f);
 

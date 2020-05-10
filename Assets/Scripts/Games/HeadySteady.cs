@@ -116,8 +116,9 @@ public class HeadySteady : Game
 
         FindObjectOfType<LineGraphManager>().CreateHeadySteadyGraph(baselineMovementVariation, testedMovementVariation);
 
+        if(FindObjectOfType<ProgressionBoard>() != null)
+            FindObjectOfType<ProgressionBoard>().AddBoardElement("HeadySteady 1/1");
+
         FindObjectOfType<EndScreenDelete>().AddGame();
-        //gameManager.gamesComplete++;
-        //gameManager.CheckGamesComplete();
     }
 }
