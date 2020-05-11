@@ -9,9 +9,9 @@ public class CupGame : Game
     public GameObject Cups3, Cups4, Cups5;
     public GameObject mainMenu;
     public GameObject table;
+    public int maxAllowedWrongAnswers = 2;
 
     private Cup winningCup;
-    private GameManager gameManager;
     private AudioSource source;
     private bool hasSelected;
     private Animation anim;
@@ -19,6 +19,10 @@ public class CupGame : Game
     private float ballSpawnXOffset = .125f;
     private Text timer;
     private bool gameIsOver = false;
+    private int score;
+    private int currentRound;
+    private int currentWrong = 0;
+    public int g = 0;
 
     private float animationSpeed = 5;
 
@@ -26,25 +30,27 @@ public class CupGame : Game
     {
         timer = GameObject.Find("Timer").GetComponent<Text>();
         source = GetComponent<AudioSource>();
-        gameManager = FindObjectOfType<GameManager>();
         
         StartCoroutine(Game());
+
     }
 
     private IEnumerator Game()
     {
+        score = 0;
+        currentRound = 0;
+        currentWrong = 0;
+
         yield return new WaitForSeconds(3);
 
-        //Remove for gameManager;
-        int numOfGames = 3;
-        //replace for gamemanager
-        int numOfCups = 3;
-
-        for (int g = 0; g < numOfGames; g++)
+        for (g = 0; g < gameManager.objectTrackingTestGameDatas.Count; g++)
         {
+            currentRound = g;
+            //print("round " + g + " # cups: " + gameManager.objectTrackingTestGameDatas[g].numberOfCups
+             //+ " round speed: " + gameManager.objectTrackingTestGameDatas[g].objectMovementSpeed + " round " + gameManager.objectTrackingTestGameDatas[g].roundDuration);
             if (!gameIsOver)
             {
-                if(g == 0)
+                if(g == 0 && gameManager.instructions)
                 {
                     source.clip = instructions1;
                     source.Play();
@@ -55,7 +61,7 @@ public class CupGame : Game
                 animFinished = false;
                 hasSelected = false;
 
-                switch (numOfCups)
+                switch (gameManager.objectTrackingTestGameDatas[g].numberOfCups)
                 {
                     case 3:
                         Cups3.SetActive(true);
@@ -66,10 +72,15 @@ public class CupGame : Game
                     case 5:
                         Cups5.SetActive(true);
                         break;
+                    default:
+                        print("no cups found");
+                        break;
                 }
 
                 //Get the anim of the currently active GO.
                 anim = GetComponentInChildren<Animation>();
+
+                anim[anim.clip.name].speed = gameManager.objectTrackingTestGameDatas[g].objectMovementSpeed;
 
                 //Get all active cups.
                 cups = FindObjectsOfType<Cup>();
@@ -98,18 +109,19 @@ public class CupGame : Game
 
                 yield return new WaitForSeconds(5);
 
-                if (g + 1 == numOfGames)
+                if (g + 1 == gameManager.objectTrackingTestGameDatas.Count)
                 {
                     timer.text = "That was the last round!";
                     StartCoroutine(EndGame(false));
                 }    
                 else 
                     timer.text = "";
-
-                numOfCups++;
             }
             yield return null;
         }
+        
+        if(FindObjectOfType<ProgressionBoard>() != null)
+            FindObjectOfType<ProgressionBoard>().AddBoardElement("Cup Game: " + score);
     }
 
     public void CupSelected(Cup selectedCup)
@@ -117,6 +129,7 @@ public class CupGame : Game
         if(selectedCup == winningCup)
         {
             timer.text = "Good job!";
+            score += gameManager.objectTrackingTestGameDatas[currentRound].numberOfCups;
             base.OnWin();
         } else
         {
@@ -129,39 +142,36 @@ public class CupGame : Game
 
     private IEnumerator EndGame(bool loss)
     {
-        if(FindObjectOfType<ProgressionBoard>() != null)
-            FindObjectOfType<ProgressionBoard>().AddBoardElement("Cup Game 3/3");
-
-        if (loss)
+        currentWrong++;
+        if (loss && currentWrong == maxAllowedWrongAnswers)
         {
             gameIsOver = true;
             ResetCups();
+            timer.text = "Game Over!";
+            yield return new WaitForSeconds(5.0f);
+            timer.text = "";
+            table.SetActive(false);
+            mainMenu.SetActive(true);
+            g--;
+        } else {
+            ResetCups();
             timer.text = "Oops, wrong one!";
-        }
-        yield return new WaitForSeconds(5.0f);
-        //gameManager.gamesComplete++;
-        //5gameManager.CheckGamesComplete();
-        FindObjectOfType<EndScreenDelete>().AddGame();
-        timer.text = "";
-        table.SetActive(false);
-        mainMenu.SetActive(true);
+            g--;
+        } 
     }
 
     public void SetAnimFinished()
     {
         animFinished = true;
-        print("anim finished");
     }
 
     public void SpawnBall()
     {
-        print("Spawn ball");
         winningCup.SpawnBall(ballPrefab, ballSpawnXOffset);
     }
 
     public void Deleteball()
     {
-        print("Deleted ball");
         winningCup.DeleteBall();
     }
 
@@ -173,7 +183,6 @@ public class CupGame : Game
     private void ResetCups()
     {
         Deleteball();
-
         foreach (Cup c in FindObjectsOfType<Cup>())
         {
             c.tag = "Untagged";
@@ -185,9 +194,3 @@ public class CupGame : Game
         Cups5.SetActive(false);
     }
 }
-
-
-//TODO
-//Get the round info from GameManager
-//Add win and loss feedback
-//Make player win when rounds reaches max

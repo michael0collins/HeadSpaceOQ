@@ -16,14 +16,12 @@ public class HeadySteady : Game
     private AudioSource source;
     public Animator anim;
     private GameObject headObject;
-    private GameManager gameManager;
 
     [Header("Game Settings")]
     public float dataCollectionInterval = .1f;
 
     private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
         headObject = FindObjectOfType<ObjectDetector>().gameObject;
         timer = GameObject.Find("Timer").GetComponent<Text>();
         //anim = GameObject.Find("Environment").GetComponent<Animator>();
@@ -37,8 +35,11 @@ public class HeadySteady : Game
     private IEnumerator Game()
     {
         //Start the instructions.
-        source.clip = baselineInstructions;
-        source.Play();
+        if(gameManager.instructions)
+        {
+            source.clip = baselineInstructions;
+            source.Play();
+        }
 
         //Wait until instructions are done.
         yield return new WaitForSeconds(source.clip.length + 3.0f);
@@ -67,11 +68,13 @@ public class HeadySteady : Game
         for (int i = 0; i < distances.Length; i++)
             average += distances[i];
         
-
         averageBaselineMovement = average / baselineMovementVariation.Count;
 
-        source.clip = testedInstructions;
-        source.Play();
+        if(gameManager.instructions)
+        {
+            source.clip = testedInstructions;
+            source.Play();
+        }
 
         yield return new WaitForSeconds(source.clip.length + 3.0f);
 
@@ -109,16 +112,17 @@ public class HeadySteady : Game
 
         yield return new WaitForSeconds(3.0f);
 
-        source.clip = resultsInstructions;
-        source.Play();
+        if(gameManager.instructions)
+        {
+            source.clip = resultsInstructions;
+            source.Play();
+        }
 
         resultsBoard.SetActive(true);
 
         FindObjectOfType<LineGraphManager>().CreateHeadySteadyGraph(baselineMovementVariation, testedMovementVariation);
 
         if(FindObjectOfType<ProgressionBoard>() != null)
-            FindObjectOfType<ProgressionBoard>().AddBoardElement("HeadySteady 1/1");
-
-        FindObjectOfType<EndScreenDelete>().AddGame();
+            FindObjectOfType<ProgressionBoard>().AddBoardElement("HeadySteady");
     }
 }

@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Game : MonoBehaviour, IGame
 {
+    public GameManager gameManager;
+
+    void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+    
     public void OnStart()
     {
 

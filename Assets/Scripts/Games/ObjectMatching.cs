@@ -24,26 +24,21 @@ public class ObjectMatching : Game
     private float objectGridSpacing = 1;
     private Text timer;
     private AudioSource source;
-    private GameManager gameManager;
 
     private void Start()
     {
         timer = GameObject.Find("Timer").GetComponent<Text>();
         source = GetComponent<AudioSource>();
-        gameManager = FindObjectOfType<GameManager>();
         StartCoroutine(Game());
     }
 
     private IEnumerator Game()
     {
-        //int numOfGames = gameManager.objectTrackingTestGameDatas.Count;
-        int numOfGames = 3;
-
         yield return new WaitForSeconds(3.0f);
 
-        for (int g = 0; g < numOfGames; g++)
+        for (int g = 0; g < gameManager.memoryTestGameDatas.Count; g++)
         {
-            if (g == 0)
+            if (g == 0 && gameManager.instructions)
             {
                 source.clip = instructions1;
                 source.Play();
@@ -117,7 +112,7 @@ public class ObjectMatching : Game
             if (totalCorrect == totalGoalObjects)
             {
                 base.OnWin();
-                if(g == numOfGames)
+                if(g == gameManager.memoryTestGameDatas.Count)
                     timer.text = "Good job, there are no more rounds.";
                 else
                     timer.text = "Good job, next round.";
@@ -128,21 +123,15 @@ public class ObjectMatching : Game
             {
                 base.OnLoss();
                 timer.text = "Oops, that was wrong";
-                //Stop loop.
-                g = numOfGames;
             }
-
-            if(FindObjectOfType<ProgressionBoard>() != null)
-                FindObjectOfType<ProgressionBoard>().AddBoardElement("Object Matching 3/3");
 
             yield return new WaitForSeconds(5.0f);
 
+            if(FindObjectOfType<ProgressionBoard>() != null)
+                FindObjectOfType<ProgressionBoard>().AddBoardElement("Object Matching " + g.ToString());
+
             timer.text = "";
         }
-
-        //gameManager.gamesComplete++;
-        //gameManager.CheckGamesComplete();
-        FindObjectOfType<EndScreenDelete>().AddGame();
         returnToMenu.SetActive(true);
     }
 
@@ -176,47 +165,4 @@ public class ObjectMatching : Game
     }
 }
 
-/*
- *     private IEnumerator Game()
-    {
-        //int numOfGames = gameManager.objectTrackingTestGameDatas.Count;
-        int numOfGames = 3;
-
-        yield return new WaitForSeconds(3.0f);
-
-        for (int i = 0; i < numOfGames; i++)
-        {
-            
-            if (i == 0)
-            {
-                source.clip = instructions1;
-                source.Play();
-                yield return new WaitForSeconds(instructions1.length);
-            }
-            
-
-//Create game specific list
-List<MatchingObject> goalObjects = new List<MatchingObject>(matchingObjectsPool);
-
-            //Replace the 3 with the GameManager data.
-            foreach(int seed in RandomSeedGenerator(3, matchingObjectsPool))
-            {
-                MatchingObject objectClone = Instantiate(matchingObjectsPool[seed]) as MatchingObject;
-goalObjects.Add(objectClone);
-            }
-            
-            int spawnIndex = 0;
-            for (int j = 0; j<gridWidth; j++)
-            {
-                for (int k = 0; k<gridWidth; k++)
-                {
-                    Vector3 gridPos = new Vector3(transform.position.x + i * objectGridSpacing, transform.position.y + j * objectGridSpacing, transform.position.z);
-MatchingObject matchingObjectClone = Instantiate(goalObjects[spawnIndex], gridPos, transform.rotation, transform) as MatchingObject;
-spawnIndex++;
-                }
-            }
-            
-        }
-    }
-    */
     
