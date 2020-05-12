@@ -16,6 +16,7 @@ public class HeadySteady : Game
     private AudioSource source;
     public Animator anim;
     private GameObject headObject;
+    private float totalTestedMovement = 0;
 
     [Header("Game Settings")]
     public float dataCollectionInterval = .1f;
@@ -54,7 +55,7 @@ public class HeadySteady : Game
 
         while (Time.time - loggedTime < animClip.length)
         {
-            timer.text = Convert.ToInt16(Time.time - loggedTime) + " / " + Convert.ToInt16(25);
+            timer.text = Convert.ToInt16(Time.time - loggedTime) + " / " + Convert.ToInt16(30);
             baselineMovementVariation.Add(Vector3.Distance(startLocation, headObject.transform.position));
             yield return new WaitForSeconds(dataCollectionInterval);
         }
@@ -89,10 +90,12 @@ public class HeadySteady : Game
 
         List<float> testedMovementVariation = new List<float>();
 
-        while (Time.time - loggedTime < 25)
+        while (Time.time - loggedTime < 30)
         {
-            timer.text = Convert.ToInt16(Time.time - loggedTime) + " / " + Convert.ToInt16(25);
-            testedMovementVariation.Add(Vector3.Distance(startLocation, headObject.transform.position));
+            timer.text = Convert.ToInt16(Time.time - loggedTime) + " / " + Convert.ToInt16(30);
+            float movementTotal = Vector3.Distance(startLocation, headObject.transform.position);
+            testedMovementVariation.Add(movementTotal);
+            totalTestedMovement += movementTotal;
             yield return new WaitForSeconds(dataCollectionInterval);
         }
 
@@ -123,6 +126,6 @@ public class HeadySteady : Game
         FindObjectOfType<LineGraphManager>().CreateHeadySteadyGraph(baselineMovementVariation, testedMovementVariation);
 
         if(FindObjectOfType<ProgressionBoard>() != null)
-            FindObjectOfType<ProgressionBoard>().AddBoardElement("HeadySteady");
+            FindObjectOfType<ProgressionBoard>().AddBoardElement("HeadySteady: " + totalTestedMovement);
     }
 }

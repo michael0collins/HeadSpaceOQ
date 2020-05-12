@@ -133,20 +133,56 @@ public class GameManager : MonoBehaviour
         MemoryTestGameData defaultMemoryTestData0 = new MemoryTestGameData();
         defaultMemoryTestData0.roundDuration = 10;
         defaultMemoryTestData0.objectShowDuration = 5.0f;
-        defaultMemoryTestData0.numberOfShapes = 6;
+        defaultMemoryTestData0.numberOfShapes = 3;
         memoryTestGameDatas.Add(defaultMemoryTestData0);
 
         MemoryTestGameData defaultMemoryTestData1 = new MemoryTestGameData();
-        defaultMemoryTestData1.roundDuration = 8;
-        defaultMemoryTestData1.objectShowDuration = 3.0f;
-        defaultMemoryTestData1.numberOfShapes = 8;
+        defaultMemoryTestData1.roundDuration = 9;
+        defaultMemoryTestData1.objectShowDuration = 4.0f;
+        defaultMemoryTestData1.numberOfShapes = 3;
         memoryTestGameDatas.Add(defaultMemoryTestData1);
 
         MemoryTestGameData defaultMemoryTestData2 = new MemoryTestGameData();
-        defaultMemoryTestData2.roundDuration = 5;
-        defaultMemoryTestData2.objectShowDuration = 2.5f;
-        defaultMemoryTestData2.numberOfShapes = 12;
+        defaultMemoryTestData2.roundDuration = 8;
+        defaultMemoryTestData2.objectShowDuration = 3;
+        defaultMemoryTestData2.numberOfShapes = 3;
         memoryTestGameDatas.Add(defaultMemoryTestData2);
+
+        MemoryTestGameData defaultMemoryTestData3 = new MemoryTestGameData();
+        defaultMemoryTestData3.roundDuration = 7;
+        defaultMemoryTestData3.objectShowDuration = 2;
+        defaultMemoryTestData3.numberOfShapes = 3;
+        memoryTestGameDatas.Add(defaultMemoryTestData3);
+
+        MemoryTestGameData defaultMemoryTestData4 = new MemoryTestGameData();
+        defaultMemoryTestData4.roundDuration = 6;
+        defaultMemoryTestData4.objectShowDuration = 1;
+        defaultMemoryTestData4.numberOfShapes = 3;
+        memoryTestGameDatas.Add(defaultMemoryTestData4);
+
+        MemoryTestGameData defaultMemoryTestData5 = new MemoryTestGameData();
+        defaultMemoryTestData5.roundDuration = 5;
+        defaultMemoryTestData5.objectShowDuration = 1;
+        defaultMemoryTestData5.numberOfShapes = 3;
+        memoryTestGameDatas.Add(defaultMemoryTestData5);
+
+        MemoryTestGameData defaultMemoryTestData6 = new MemoryTestGameData();
+        defaultMemoryTestData6.roundDuration = 5;
+        defaultMemoryTestData6.objectShowDuration = 1;
+        defaultMemoryTestData6.numberOfShapes = 4;
+        memoryTestGameDatas.Add(defaultMemoryTestData6);
+
+        MemoryTestGameData defaultMemoryTestData7 = new MemoryTestGameData();
+        defaultMemoryTestData7.roundDuration = 5;
+        defaultMemoryTestData7.objectShowDuration = 1;
+        defaultMemoryTestData7.numberOfShapes = 5;
+        memoryTestGameDatas.Add(defaultMemoryTestData7);
+
+        MemoryTestGameData defaultMemoryTestData8 = new MemoryTestGameData();
+        defaultMemoryTestData8.roundDuration = 5;
+        defaultMemoryTestData8.objectShowDuration = 1;
+        defaultMemoryTestData8.numberOfShapes = 6;
+        memoryTestGameDatas.Add(defaultMemoryTestData8);
     }
 }
 

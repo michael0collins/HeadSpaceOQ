@@ -15,6 +15,7 @@ public class ObjectMatching : Game
     public int totalCorrect = 0;
     public GameObject returnToMenu;
     public bool incorrectGuess = false;
+    public int maxWrongAnswers = 2;
 
     public AudioClip instructions1;
     public List<MatchingObject> matchingObjectsPool = new List<MatchingObject>();
@@ -24,6 +25,10 @@ public class ObjectMatching : Game
     private float objectGridSpacing = 1;
     private Text timer;
     private AudioSource source;
+    private int g;
+    private int currentWrong = 0;
+    private int score;
+    private bool hasLost = false;
 
     private void Start()
     {
@@ -34,9 +39,12 @@ public class ObjectMatching : Game
 
     private IEnumerator Game()
     {
+        currentWrong = 0;
+        score = 0;
+
         yield return new WaitForSeconds(3.0f);
 
-        for (int g = 0; g < gameManager.memoryTestGameDatas.Count; g++)
+        for (g = 0; g < gameManager.memoryTestGameDatas.Count; g++)
         {
             if (g == 0 && gameManager.instructions)
             {
@@ -64,7 +72,7 @@ public class ObjectMatching : Game
             seed = RandomSeedGenerator(totalGoalObjects, inGameObjects);
 
             //Assign goal objects.
-            for(int i = 0; i < totalGoalObjects; i++)
+            for(int i = 0; i < gameManager.memoryTestGameDatas[g].numberOfShapes; i++)
             {
                 inGameObjects[seed[i]].isGoalObject = true;
             }
@@ -75,7 +83,7 @@ public class ObjectMatching : Game
                 {
                     Vector3 pos = matchingObject.transform.position;
                     matchingObject.transform.position = objectShowPosition.position;
-                    yield return new WaitForSeconds(showDuration);
+                    yield return new WaitForSeconds(gameManager.memoryTestGameDatas[g].objectShowDuration);
                     matchingObject.transform.position = pos;
                 }
             }
@@ -96,12 +104,13 @@ public class ObjectMatching : Game
             totalCorrect = 0;
             incorrectGuess = false;
 
-            while (totalCorrect < totalGoalObjects && incorrectGuess == false)
+            while (totalCorrect < gameManager.memoryTestGameDatas[g].numberOfShapes && incorrectGuess == false)
             {
                 yield return null;
             }
 
-            //Delete all matching objects.
+            score += gameManager.memoryTestGameDatas[g].numberOfShapes;
+
             inGameObjects.Clear();
             foreach(MatchingObject matchingObject in FindObjectsOfType<MatchingObject>())
             {
@@ -112,24 +121,34 @@ public class ObjectMatching : Game
             if (totalCorrect == totalGoalObjects)
             {
                 base.OnWin();
-                if(g == gameManager.memoryTestGameDatas.Count)
+                if (g == gameManager.memoryTestGameDatas.Count)
+                {
                     timer.text = "Good job, there are no more rounds.";
+                    FindObjectOfType<ProgressionBoard>()
+                        .AddBoardElement("Object Matching " + score.ToString());
+                }
                 else
                     timer.text = "Good job, next round.";
             }
-            else
-
-            if (incorrectGuess)
+            else if (incorrectGuess)
             {
-                base.OnLoss();
-                timer.text = "Oops, that was wrong";
+                currentWrong++;
+                g--;
+                if (currentWrong == maxWrongAnswers)
+                {
+                    base.OnLoss();
+                    timer.text = "Game Over!";
+                    yield return new WaitForSeconds(3.0f);
+                    returnToMenu.SetActive(true);
+                    timer.text = "";
+                    FindObjectOfType<ProgressionBoard>()
+                        .AddBoardElement("Object Matching " + score.ToString());
+                    g = 100;
+                } else 
+                    timer.text = "Oops, that was wrong!";
             }
 
             yield return new WaitForSeconds(5.0f);
-
-            if(FindObjectOfType<ProgressionBoard>() != null)
-                FindObjectOfType<ProgressionBoard>().AddBoardElement("Object Matching " + g.ToString());
-
             timer.text = "";
         }
         returnToMenu.SetActive(true);
