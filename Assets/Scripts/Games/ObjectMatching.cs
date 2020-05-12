@@ -28,6 +28,7 @@ public class ObjectMatching : Game
     private int g;
     private int currentWrong = 0;
     private int score;
+    private bool readInstructions = false;
     private bool hasLost = false;
 
     private void Start()
@@ -46,8 +47,9 @@ public class ObjectMatching : Game
 
         for (g = 0; g < gameManager.memoryTestGameDatas.Count; g++)
         {
-            if (g == 0 && gameManager.instructions)
+            if (readInstructions == false && gameManager.instructions)
             {
+                readInstructions = true;
                 source.clip = instructions1;
                 source.Play();
                 yield return new WaitForSeconds(instructions1.length);
@@ -144,8 +146,10 @@ public class ObjectMatching : Game
                     FindObjectOfType<ProgressionBoard>()
                         .AddBoardElement("Object Matching " + score.ToString());
                     g = 100;
-                } else 
+                } else {
                     timer.text = "Oops, that was wrong!";
+                    yield return new WaitForSeconds(2.0f);
+                }
             }
 
             yield return new WaitForSeconds(5.0f);

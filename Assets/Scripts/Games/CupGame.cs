@@ -23,6 +23,7 @@ public class CupGame : Game
     private int currentRound;
     private int currentWrong = 0;
     public int g = 0;
+    private bool instructionsRead = false;
 
     private float animationSpeed = 5;
 
@@ -50,13 +51,14 @@ public class CupGame : Game
              //+ " round speed: " + gameManager.objectTrackingTestGameDatas[g].objectMovementSpeed + " round " + gameManager.objectTrackingTestGameDatas[g].roundDuration);
             if (!gameIsOver)
             {
-                if(g == 0 && gameManager.instructions)
+                if(instructionsRead == false && gameManager.instructions)
                 {
+                    instructionsRead = true;
                     source.clip = instructions1;
                     source.Play();
                     yield return new WaitForSeconds(source.clip.length);
                 }
-
+                score += gameManager.objectTrackingTestGameDatas[currentRound].numberOfCups;
                 Cup[] cups;
                 animFinished = false;
                 hasSelected = false;
@@ -129,7 +131,6 @@ public class CupGame : Game
         if(selectedCup == winningCup)
         {
             timer.text = "Good job!";
-            score += gameManager.objectTrackingTestGameDatas[currentRound].numberOfCups;
             base.OnWin();
         } else
         {
