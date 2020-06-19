@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
-    public GameObject inGame;
-    public GameObject scoreScreen;
+    public Canvas playerHUD;
+    private CanvasGroup _canvasGroup;
 
-    private void OnLevelWasLoaded()
+    private void Start()
     {
-        if(SceneManager.GetActiveScene().name == "ScoreScreen")
-        {
-            inGame.SetActive(false);
-            scoreScreen.SetActive(true);
-        }
+        _canvasGroup = playerHUD.GetComponent<CanvasGroup>();
+    }
+
+    public void TogglePlayerHUD(bool state)
+    {
+        if (state)
+            _canvasGroup.alpha = 1;
+        else
+            _canvasGroup.alpha = 0;
     }
 }
