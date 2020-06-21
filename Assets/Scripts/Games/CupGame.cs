@@ -24,16 +24,13 @@ public class CupGame : Game
     private int currentWrong = 0;
     public int g = 0;
     private bool instructionsRead = false;
-
     private float animationSpeed = 5;
 
     private void Start()
     {
         timer = GameObject.Find("Timer").GetComponent<Text>();
         source = GetComponent<AudioSource>();
-        
         StartCoroutine(Game());
-
     }
 
     private IEnumerator Game()
@@ -47,8 +44,7 @@ public class CupGame : Game
         for (g = 0; g < gameManager.objectTrackingTestGameDatas.Count; g++)
         {
             currentRound = g;
-            //print("round " + g + " # cups: " + gameManager.objectTrackingTestGameDatas[g].numberOfCups
-             //+ " round speed: " + gameManager.objectTrackingTestGameDatas[g].objectMovementSpeed + " round " + gameManager.objectTrackingTestGameDatas[g].roundDuration);
+
             if (!gameIsOver)
             {
                 if(instructionsRead == false && gameManager.instructions)
@@ -123,7 +119,7 @@ public class CupGame : Game
         }
         
         if(FindObjectOfType<ProgressionBoard>() != null)
-            FindObjectOfType<ProgressionBoard>().AddBoardElement("Cup Game: " + score);
+            FindObjectOfType<ProgressionBoard>().AddBoardElement("Cup Game: " + score + " round failed at <color=#FF0000>" + g+1.ToString() + "</color>");
     }
 
     public void CupSelected(Cup selectedCup)

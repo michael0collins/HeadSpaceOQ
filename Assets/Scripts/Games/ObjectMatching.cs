@@ -144,7 +144,7 @@ public class ObjectMatching : Game
                     returnToMenu.SetActive(true);
                     timer.text = "";
                     FindObjectOfType<ProgressionBoard>()
-                        .AddBoardElement("Object Matching " + score.ToString());
+                        .AddBoardElement("Object Matching " + score.ToString() + " round failed at <color=#FF0000>" + g+1.ToString() + "</color>");
                     g = 100;
                 } else {
                     timer.text = "Oops, that was wrong!";

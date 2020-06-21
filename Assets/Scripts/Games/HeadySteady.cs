@@ -26,7 +26,6 @@ public class HeadySteady : Game
     {
         headObject = FindObjectOfType<ObjectDetector>().gameObject;
         timer = GameObject.Find("Timer").GetComponent<Text>();
-        //anim = GameObject.Find("Environment").GetComponent<Animator>();
         source = GetComponent<AudioSource>();
         if (anim == null)
             timer.text = "Anim is null";
@@ -36,19 +35,14 @@ public class HeadySteady : Game
 
     private IEnumerator Game()
     {
-        //Start the instructions.
         if(gameManager.instructions)
         {
             source.clip = baselineInstructions;
             source.Play();
         }
 
-        //Wait until instructions are done.
         yield return new WaitForSeconds(source.clip.length + 3.0f);
 
-        //timer.enabled = true;
-
-        //Recording
         float loggedTime = Time.time;
         float averageBaselineMovement;
         List<float> baselineMovementVariation = new List<float>();
@@ -59,7 +53,6 @@ public class HeadySteady : Game
 
         while (Time.time - loggedTime < animClip.length)
         {
-            //timer.text = Convert.ToInt16(Time.time - loggedTime) + " / " + Convert.ToInt16(30);
             timerObject.GetComponentInChildren<Text>().text = Convert.ToInt16(Time.time - loggedTime) + " / " + Convert.ToInt16(30);
             baselineMovementVariation.Add(Vector3.Distance(startLocation, headObject.transform.position));
             yield return new WaitForSeconds(dataCollectionInterval);
@@ -68,8 +61,6 @@ public class HeadySteady : Game
 
 
         timerObject.SetActive(false);
-
-        //timer.enabled = false;
 
         float average = 0;
 
@@ -88,15 +79,11 @@ public class HeadySteady : Game
 
         yield return new WaitForSeconds(source.clip.length + 3.0f);
 
-        //timer.text = "Anim";
-
         anim.SetTrigger("StartSimulation");
 
         float averageTestedMovement;
         startLocation = headObject.transform.position;
         loggedTime = Time.time;
-        //timer.enabled = true;
-
 
         timerObject.SetActive(true);
 
@@ -105,7 +92,6 @@ public class HeadySteady : Game
 
         while (Time.time - loggedTime < 30)
         {
-            //timer.text = Convert.ToInt16(Time.time - loggedTime) + " / " + Convert.ToInt16(30);
             timerObject.GetComponentInChildren<Text>().text = Convert.ToInt16(Time.time - loggedTime) + " / " + Convert.ToInt16(30);
             float movementTotal = Vector3.Distance(startLocation, headObject.transform.position);
             testedMovementVariation.Add(movementTotal);
@@ -117,7 +103,6 @@ public class HeadySteady : Game
         anim.ResetTrigger("StartSimulation");
 
         timerObject.SetActive(false);
-        //timer.enabled = false;
 
         average = 0;
         distances = testedMovementVariation.ToArray();
